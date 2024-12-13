@@ -1,0 +1,25 @@
+//@version=6
+strategy("SMA Crossover Strategy with Alerts", overlay=true)
+
+// Inputs for SMA periods
+shortSmaLength = input.int(1, title="Short SMA Length", minval=1)
+longSmaLength = input.int(500, title="Long SMA Length", minval=1)
+
+// Calculate SMAs
+shortSma = ta.sma(close, shortSmaLength)
+longSma = ta.sma(close, longSmaLength)
+
+// Plot SMAs
+plot(shortSma, color=color.blue, title="Short SMA")
+plot(longSma, color=color.red, title="Long SMA")
+
+// Entry and exit conditions
+longCondition = ta.crossover(shortSma, longSma)
+exitCondition = ta.crossunder(shortSma, longSma)
+
+// Entry and exit logic
+if (longCondition)
+    strategy.entry("Long", strategy.long)
+
+if (exitCondition)
+    strategy.close("Long")
