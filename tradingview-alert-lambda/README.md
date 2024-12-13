@@ -1,4 +1,4 @@
-# **SMA Crossover Strategy with AWS Lambda Integration (POC)**
+# **TradingView Pine Script SMA Crossover Strategy with AWS Lambda Integration (POC)**
 
 This folder contains a **Proof of Concept (POC)** for integrating a TradingView Pine Script strategy with **AWS Lambda**. The POC demonstrates how trading signals generated from a Simple Moving Average (SMA) Crossover strategy can be automated and processed using serverless infrastructure.
 
